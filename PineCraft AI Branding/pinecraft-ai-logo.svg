@@ -1,0 +1,119 @@
+<svg width="600" height="140" viewBox="0 0 600 140" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Glow filters -->
+    <filter id="blueGlow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <filter id="orangeGlow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Gradient for circuit lines -->
+    <linearGradient id="circuitGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00D9FF;stop-opacity:0" />
+      <stop offset="50%" style="stop-color:#00D9FF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00D9FF;stop-opacity:0" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="600" height="140" fill="#0A0E1A"/>
+  
+  <!-- Grid pattern -->
+  <g opacity="0.1">
+    <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#1A4F63" stroke-width="0.5"/>
+    </pattern>
+    <rect width="600" height="140" fill="url(#grid)" />
+  </g>
+  
+  <!-- Logo Icon Group -->
+  <g transform="translate(30, 30)">
+    <!-- Pine Tree -->
+    <!-- Top triangle -->
+    <polygon points="40,15 25,35 55,35" 
+             fill="none" 
+             stroke="#00D9FF" 
+             stroke-width="2" 
+             filter="url(#blueGlow)"/>
+    
+    <!-- Middle triangle -->
+    <polygon points="40,25 20,45 60,45" 
+             fill="none" 
+             stroke="#00D9FF" 
+             stroke-width="2" 
+             filter="url(#blueGlow)"/>
+    
+    <!-- Bottom triangle -->
+    <polygon points="40,35 15,55 65,55" 
+             fill="none" 
+             stroke="#00D9FF" 
+             stroke-width="2" 
+             filter="url(#blueGlow)"/>
+    
+    <!-- Trunk -->
+    <rect x="35" y="55" width="10" height="15" 
+          fill="#FF9F00" 
+          filter="url(#orangeGlow)"/>
+    
+    <!-- Circuit lines -->
+    <line x1="40" y1="15" x2="40" y2="0" 
+          stroke="url(#circuitGradient)" 
+          stroke-width="1" 
+          stroke-dasharray="3,3"/>
+    
+    <line x1="25" y1="35" x2="5" y2="35" 
+          stroke="url(#circuitGradient)" 
+          stroke-width="1" 
+          stroke-dasharray="3,3"/>
+    
+    <line x1="55" y1="35" x2="75" y2="35" 
+          stroke="url(#circuitGradient)" 
+          stroke-width="1" 
+          stroke-dasharray="3,3"/>
+    
+    <!-- Data nodes -->
+    <circle cx="40" cy="0" r="3" fill="#FF9F00" filter="url(#orangeGlow)"/>
+    <circle cx="5" cy="35" r="3" fill="#FF9F00" filter="url(#orangeGlow)"/>
+    <circle cx="75" cy="35" r="3" fill="#FF9F00" filter="url(#orangeGlow)"/>
+  </g>
+  
+  <!-- Company Name -->
+  <g transform="translate(130, 55)">
+    <text font-family="Arial, sans-serif" font-weight="900" font-size="36" letter-spacing="3">
+      <tspan fill="#00D9FF" filter="url(#blueGlow)">PINECRAFT</tspan>
+      <tspan fill="#FF9F00" filter="url(#orangeGlow)">AI</tspan>
+    </text>
+  </g>
+  
+  <!-- Tagline -->
+  <text x="130" y="85" 
+        font-family="Arial, sans-serif" 
+        font-size="12" 
+        fill="#F0F8FF" 
+        opacity="0.8"
+        letter-spacing="1">
+    From Syntax Errors to Trading Success in Seconds.
+  </text>
+  
+  <!-- Decorative corner brackets -->
+  <g stroke="#00D9FF" stroke-width="1" fill="none" opacity="0.5">
+    <!-- Top left -->
+    <path d="M 10 10 L 10 5 L 15 5" />
+    <!-- Top right -->
+    <path d="M 590 10 L 590 5 L 585 5" />
+    <!-- Bottom left -->
+    <path d="M 10 130 L 10 135 L 15 135" />
+    <!-- Bottom right -->
+    <path d="M 590 130 L 590 135 L 585 135" />
+  </g>
+</svg> 

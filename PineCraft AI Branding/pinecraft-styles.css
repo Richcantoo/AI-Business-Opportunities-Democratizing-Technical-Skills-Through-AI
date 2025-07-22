@@ -1,0 +1,423 @@
+/* PineCraft AI - Tron Legacy Inspired Styles */
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600&family=JetBrains+Mono:wght@400;600&display=swap');
+
+:root {
+    /* Primary Colors - Tron Legacy Inspired */
+    --primary-blue: #00D9FF;
+    --secondary-orange: #FF9F00;
+    --deep-space: #0A0E1A;
+    --grid-blue: #1A4F63;
+    --electric-white: #F0F8FF;
+    
+    /* Glow Effects */
+    --blue-glow: 0 0 20px rgba(0, 217, 255, 0.8);
+    --orange-glow: 0 0 20px rgba(255, 159, 0, 0.8);
+    
+    /* Typography */
+    --font-display: 'Orbitron', monospace;
+    --font-heading: 'Exo 2', sans-serif;
+    --font-body: 'Exo 2', sans-serif;
+    --font-code: 'JetBrains Mono', monospace;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--deep-space);
+    color: var(--electric-white);
+    font-family: var(--font-body);
+    overflow-x: hidden;
+}
+
+/* Grid Background - Tron Style */
+.grid-background {
+    position: relative;
+    min-height: 100vh;
+    background-image: 
+        linear-gradient(rgba(26, 79, 99, 0.3) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(26, 79, 99, 0.3) 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: grid-move 10s linear infinite;
+}
+
+@keyframes grid-move {
+    0% { background-position: 0 0, 0 0; }
+    100% { background-position: 50px 50px, 50px 50px; }
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    position: relative;
+}
+
+/* Logo Container */
+.logo-container {
+    text-align: center;
+    padding: 4rem 0;
+    position: relative;
+}
+
+.logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem;
+    background: radial-gradient(ellipse at center, rgba(0, 217, 255, 0.1) 0%, transparent 70%);
+    border-radius: 10px;
+}
+
+/* Pine Icon SVG Styling */
+.pine-icon {
+    width: 120px;
+    height: 120px;
+    position: relative;
+}
+
+.pine-svg {
+    width: 100%;
+    height: 100%;
+}
+
+.pine-top, .pine-middle, .pine-bottom {
+    fill: none;
+    stroke: var(--primary-blue);
+    stroke-width: 2;
+    filter: drop-shadow(var(--blue-glow));
+    animation: pulse-blue 2s ease-in-out infinite;
+}
+
+.pine-trunk {
+    fill: var(--secondary-orange);
+    filter: drop-shadow(var(--orange-glow));
+    animation: pulse-orange 2s ease-in-out infinite;
+}
+
+.circuit-line {
+    stroke: var(--primary-blue);
+    stroke-width: 1;
+    stroke-dasharray: 5, 5;
+    animation: circuit-flow 2s linear infinite;
+    opacity: 0.6;
+}
+
+.data-node {
+    fill: var(--secondary-orange);
+    filter: drop-shadow(var(--orange-glow));
+    animation: node-pulse 1s ease-in-out infinite;
+}
+
+@keyframes pulse-blue {
+    0%, 100% { opacity: 0.8; }
+    50% { opacity: 1; }
+}
+
+@keyframes pulse-orange {
+    0%, 100% { opacity: 0.8; }
+    50% { opacity: 1; }
+}
+
+@keyframes circuit-flow {
+    to { stroke-dashoffset: -10; }
+}
+
+@keyframes node-pulse {
+    0%, 100% { r: 3; opacity: 0.6; }
+    50% { r: 4; opacity: 1; }
+}
+
+/* Logo Text */
+.logo-text {
+    text-align: left;
+}
+
+.company-name {
+    font-family: var(--font-display);
+    font-size: 3rem;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    color: var(--primary-blue);
+    text-shadow: var(--blue-glow);
+    margin-bottom: 0.5rem;
+}
+
+.ai-accent {
+    color: var(--secondary-orange);
+    text-shadow: var(--orange-glow);
+}
+
+.tagline {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 300;
+    color: var(--electric-white);
+    opacity: 0.8;
+    letter-spacing: 0.05em;
+}
+
+/* Sections */
+.section {
+    margin: 4rem 0;
+    padding: 2rem;
+    background: rgba(26, 79, 99, 0.1);
+    border: 1px solid rgba(0, 217, 255, 0.3);
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--primary-blue), transparent);
+    animation: scan-line 3s linear infinite;
+}
+
+@keyframes scan-line {
+    to { left: 100%; }
+}
+
+.section-title {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-blue);
+    text-shadow: var(--blue-glow);
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+/* Color Palette */
+.color-palette {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.color-swatch {
+    text-align: center;
+}
+
+.color-box {
+    width: 120px;
+    height: 120px;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    border: 2px solid rgba(0, 217, 255, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.primary .color-box {
+    background: var(--primary-blue);
+    box-shadow: var(--blue-glow);
+}
+
+.secondary .color-box {
+    background: var(--secondary-orange);
+    box-shadow: var(--orange-glow);
+}
+
+.dark .color-box {
+    background: var(--deep-space);
+}
+
+.accent .color-box {
+    background: var(--grid-blue);
+}
+
+/* Typography Showcase */
+.typography-showcase {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.display-font {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--primary-blue);
+    text-shadow: var(--blue-glow);
+}
+
+.heading-font {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--electric-white);
+}
+
+.body-font {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--electric-white);
+    opacity: 0.9;
+}
+
+.code-font {
+    font-family: var(--font-code);
+    font-size: 1rem;
+    background: rgba(0, 217, 255, 0.1);
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 217, 255, 0.3);
+    color: var(--primary-blue);
+    display: inline-block;
+}
+
+/* Logo Variations */
+.logo-variations {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.logo-variant {
+    padding: 2rem;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 217, 255, 0.3);
+    min-width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.light-bg {
+    background: var(--electric-white);
+    color: var(--deep-space);
+}
+
+.dark-bg {
+    background: var(--deep-space);
+}
+
+.icon-only {
+    background: transparent;
+}
+
+.mini-logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo-mark, .logo-mark-large {
+    font-family: var(--font-display);
+    font-weight: 900;
+    color: var(--primary-blue);
+    text-shadow: var(--blue-glow);
+}
+
+.logo-mark {
+    font-size: 2rem;
+}
+
+.logo-mark-large {
+    font-size: 4rem;
+}
+
+.logo-text-small {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+}
+
+.light-bg .logo-mark,
+.light-bg .logo-text-small {
+    text-shadow: none;
+}
+
+/* Brand Applications */
+.applications {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.app-card {
+    background: rgba(0, 217, 255, 0.05);
+    border: 1px solid rgba(0, 217, 255, 0.3);
+    border-radius: 10px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.app-card::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, var(--primary-blue), var(--secondary-orange));
+    border-radius: 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+}
+
+.app-card:hover {
+    transform: translateY(-5px);
+    background: rgba(0, 217, 255, 0.1);
+}
+
+.app-card:hover::before {
+    opacity: 0.5;
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.icon {
+    font-size: 2rem;
+    filter: saturate(0) brightness(1.5);
+}
+
+.card-header h3 {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    color: var(--primary-blue);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .logo {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .company-name {
+        font-size: 2rem;
+    }
+    
+    .color-palette {
+        justify-content: center;
+    }
+    
+    .logo-variations {
+        flex-direction: column;
+        align-items: center;
+    }
+} 
