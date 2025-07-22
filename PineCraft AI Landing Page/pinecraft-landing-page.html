@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PineCraft AI - Transform Pine Script Errors into Trading Success</title>
+    <meta name="description" content="AI-powered Pine Script v6 code generation. Fix syntax errors instantly and create profitable trading strategies in seconds.">
+    
+    <!-- Branding CSS -->
+    <link rel="stylesheet" href="../PineCraft AI Branding/pinecraft-styles.css">
+    
+    <!-- Additional Landing Page Styles -->
+    <style>
+        /* Smooth scrolling */
+        html { scroll-behavior: smooth; }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            z-index: 10;
+            max-width: 800px;
+            padding: 2rem;
+        }
+        
+        .hero-title {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 900;
+            color: var(--primary-blue);
+            text-shadow: var(--blue-glow);
+            margin-bottom: 1rem;
+            letter-spacing: 0.05em;
+        }
+        
+        .hero-subtitle {
+            font-family: var(--font-heading);
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            color: var(--electric-white);
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .stat-highlight {
+            background: rgba(255, 159, 0, 0.1);
+            border: 1px solid var(--secondary-orange);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 2rem auto;
+            max-width: 600px;
+        }
+        
+        .stat-number {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            color: var(--secondary-orange);
+            text-shadow: var(--orange-glow);
+        }
+        
+        /* CTA Button */
+        .cta-button {
+            display: inline-block;
+            background: transparent;
+            border: 2px solid var(--primary-blue);
+            color: var(--primary-blue);
+            padding: 1rem 2.5rem;
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            margin: 1rem;
+        }
+        
+        .cta-button:hover {
+            background: var(--primary-blue);
+            color: var(--deep-space);
+            box-shadow: var(--blue-glow);
+            transform: translateY(-2px);
+        }
+        
+        .cta-button.secondary {
+            border-color: var(--secondary-orange);
+            color: var(--secondary-orange);
+        }
+        
+        .cta-button.secondary:hover {
+            background: var(--secondary-orange);
+            box-shadow: var(--orange-glow);
+        }
+        
+        /* Benefits Section */
+        .benefits {
+            padding: 5rem 2rem;
+            background: rgba(26, 79, 99, 0.05);
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .benefit-card {
+            background: rgba(0, 217, 255, 0.05);
+            border: 1px solid rgba(0, 217, 255, 0.3);
+            border-radius: 10px;
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .benefit-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--primary-blue), transparent);
+            animation: scan-line 3s linear infinite;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            background: rgba(0, 217, 255, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 217, 255, 0.3);
+        }
+        
+        .benefit-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            filter: drop-shadow(var(--blue-glow));
+        }
+        
+        .benefit-title {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+        
+        /* Pricing Preview */
+        .pricing {
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+        
+        .pricing-card {
+            max-width: 400px;
+            margin: 3rem auto;
+            background: rgba(0, 217, 255, 0.05);
+            border: 2px solid var(--primary-blue);
+            border-radius: 10px;
+            padding: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .price {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            color: var(--primary-blue);
+            text-shadow: var(--blue-glow);
+        }
+        
+        .price-period {
+            font-size: 1.2rem;
+            color: var(--electric-white);
+            opacity: 0.8;
+        }
+        
+        /* Email Capture */
+        .email-section {
+            padding: 5rem 2rem;
+            background: rgba(26, 79, 99, 0.1);
+            text-align: center;
+        }
+        
+        .email-form {
+            max-width: 500px;
+            margin: 2rem auto;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .email-input {
+            flex: 1;
+            min-width: 250px;
+            padding: 1rem 1.5rem;
+            background: rgba(0, 217, 255, 0.1);
+            border: 1px solid rgba(0, 217, 255, 0.3);
+            border-radius: 5px;
+            color: var(--electric-white);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .email-input:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 10px rgba(0, 217, 255, 0.3);
+        }
+        
+        .email-input::placeholder {
+            color: rgba(240, 248, 255, 0.5);
+        }
+        
+        /* Footer */
+        .footer {
+            padding: 3rem 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(0, 217, 255, 0.2);
+        }
+        
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .float-animation {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        /* Logo animations from branding */
+        @keyframes pulse-blue {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 1; }
+        }
+        
+        @keyframes pulse-orange {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 1; }
+        }
+        
+        @keyframes circuit-flow {
+            to { stroke-dashoffset: -10; }
+        }
+        
+        .pine-top, .pine-middle, .pine-bottom {
+            animation: pulse-blue 2s ease-in-out infinite;
+        }
+        
+        .pine-trunk {
+            animation: pulse-orange 2s ease-in-out infinite;
+        }
+        
+        .circuit-line {
+            animation: circuit-flow 2s linear infinite;
+        }
+        
+        .data-node {
+            animation: pulse-orange 1s ease-in-out infinite;
+        }
+    </style>
+    
+    <!-- Microsoft Clarity - Add your tracking code here -->
+    <script type="text/javascript">
+    /* 
+    SETUP INSTRUCTIONS:
+    1. Go to clarity.microsoft.com and sign up (it's free!)
+    2. Create a new project for PineCraft AI
+    3. Copy your tracking code and paste it here
+    4. It will look something like this:
+    
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "YOUR-PROJECT-ID");
+    */
+    </script>
+</head>
+<body>
+    <div class="grid-background">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <div class="float-animation">
+                    <div class="logo" style="max-width: 700px; margin: 0 auto;">
+                        <div class="pine-icon" style="width: 120px; height: 120px; margin: 0 auto 2rem;">
+                            <svg viewBox="0 -10 100 110" class="pine-svg" style="width: 100%; height: 100%;">
+                                <!-- Geometric Pine Tree -->
+                                <polygon points="50,10 30,40 70,40" class="pine-top" fill="none" stroke="#00D9FF" stroke-width="2" filter="drop-shadow(0 0 20px rgba(0, 217, 255, 0.8))"/>
+                                <polygon points="50,25 25,55 75,55" class="pine-middle" fill="none" stroke="#00D9FF" stroke-width="2" filter="drop-shadow(0 0 20px rgba(0, 217, 255, 0.8))"/>
+                                <polygon points="50,40 20,70 80,70" class="pine-bottom" fill="none" stroke="#00D9FF" stroke-width="2" filter="drop-shadow(0 0 20px rgba(0, 217, 255, 0.8))"/>
+                                <rect x="45" y="70" width="10" height="20" class="pine-trunk" fill="#FF9F00" filter="drop-shadow(0 0 20px rgba(255, 159, 0, 0.8))"/>
+                                
+                                <!-- Circuit patterns -->
+                                <line x1="50" y1="10" x2="50" y2="0" class="circuit-line" stroke="#00D9FF" stroke-width="1" stroke-dasharray="5,5" opacity="0.6"/>
+                                <line x1="30" y1="40" x2="10" y2="40" class="circuit-line" stroke="#00D9FF" stroke-width="1" stroke-dasharray="5,5" opacity="0.6"/>
+                                <line x1="70" y1="40" x2="90" y2="40" class="circuit-line" stroke="#00D9FF" stroke-width="1" stroke-dasharray="5,5" opacity="0.6"/>
+                                
+                                <!-- Data nodes -->
+                                <circle cx="50" cy="0" r="3" class="data-node" fill="#FF9F00" filter="drop-shadow(0 0 20px rgba(255, 159, 0, 0.8))"/>
+                                <circle cx="10" cy="40" r="3" class="data-node" fill="#FF9F00" filter="drop-shadow(0 0 20px rgba(255, 159, 0, 0.8))"/>
+                                <circle cx="90" cy="40" r="3" class="data-node" fill="#FF9F00" filter="drop-shadow(0 0 20px rgba(255, 159, 0, 0.8))"/>
+                            </svg>
+                        </div>
+                        <div class="logo-text" style="text-align: center;">
+                            <h1 class="company-name" style="font-family: var(--font-display); font-size: 3.5rem; font-weight: 900; letter-spacing: 0.1em; margin-bottom: 0.5rem;">
+                                <span style="color: #00D9FF; text-shadow: 0 0 20px rgba(0, 217, 255, 0.8);">PINECRAFT</span><span style="color: #FF9F00; text-shadow: 0 0 20px rgba(255, 159, 0, 0.8);">AI</span>
+                            </h1>
+                            <p class="tagline" style="font-family: var(--font-heading); font-size: 1.1rem; font-weight: 300; color: #F0F8FF; opacity: 0.8; letter-spacing: 0.05em;">
+                                From Syntax Errors to Trading Success in Seconds.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <h1 class="hero-title">Transform Syntax Errors into Trading Success</h1>
+                <p class="hero-subtitle">AI-Powered Pine Script v6 Code Generation</p>
+                
+                <div class="stat-highlight">
+                    <p><span class="stat-number">70%</span></p>
+                    <p style="color: var(--electric-white); font-size: 1.2rem;">of Pine Script AI users struggle with syntax errors</p>
+                    <p style="color: var(--secondary-orange); margin-top: 0.5rem;">Until Now.</p>
+                </div>
+                
+                <div>
+                    <a href="#email-capture" class="cta-button">Get Early Access</a>
+                    <a href="#benefits" class="cta-button secondary">Learn More</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Benefits Section -->
+        <section id="benefits" class="benefits">
+            <div class="container">
+                <h2 class="section-title">Why Choose PineCraft AI?</h2>
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">⚡</div>
+                        <h3 class="benefit-title">Instant Error Resolution</h3>
+                        <p>Our AI analyzes your Pine Script code and fixes syntax errors in real-time. No more debugging frustration.</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="benefit-icon">🤖</div>
+                        <h3 class="benefit-title">AI-Powered Generation</h3>
+                        <p>Describe your trading strategy in plain English, and watch as PineCraft AI generates professional Pine Script v6 code.</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="benefit-icon">📈</div>
+                        <h3 class="benefit-title">Profitable Strategies</h3>
+                        <p>Focus on positive expectancy, not just win rates. Our AI helps create strategies that actually make money.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Pricing Preview -->
+        <section id="pricing" class="pricing">
+            <div class="container">
+                <h2 class="section-title">Simple, Transparent Pricing</h2>
+                <p style="font-size: 1.2rem; opacity: 0.8; margin-bottom: 2rem;">Launch pricing available for early adopters</p>
+                
+                <div class="pricing-card">
+                    <h3 style="font-family: var(--font-heading); font-size: 1.8rem; color: var(--primary-blue); margin-bottom: 1rem;">PineCraft Pro</h3>
+                    <div class="price">$47</div>
+                    <div class="price-period">per month</div>
+                    
+                    <ul style="text-align: left; margin: 2rem 0; list-style: none;">
+                        <li style="margin: 0.5rem 0;">✓ Unlimited error fixes</li>
+                        <li style="margin: 0.5rem 0;">✓ AI code generation</li>
+                        <li style="margin: 0.5rem 0;">✓ Strategy optimization</li>
+                        <li style="margin: 0.5rem 0;">✓ Pine Script v6 education</li>
+                        <li style="margin: 0.5rem 0;">✓ Priority support</li>
+                    </ul>
+                    
+                    <a href="#email-capture" class="cta-button">Join Waitlist</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Email Capture Section -->
+        <section id="email-capture" class="email-section">
+            <div class="container">
+                <h2 class="section-title">Be First to Experience PineCraft AI</h2>
+                <p style="font-size: 1.3rem; margin-bottom: 2rem;">Join our exclusive early access list and get 30% off at launch</p>
+                
+                <!-- 
+                EMAIL FORM SETUP OPTIONS:
+                
+                Choose ONE of these options and follow the instructions:
+                
+                OPTION 1 - ConvertKit:
+                1. Sign up at convertkit.com
+                2. Create a form
+                3. Get the HTML embed code
+                4. Replace the form below
+                
+                OPTION 2 - Mailchimp:
+                1. Sign up at mailchimp.com
+                2. Create an embedded form
+                3. Copy the form code
+                4. Replace the form below
+                
+                OPTION 3 - Tally Forms (Easiest!):
+                1. Go to tally.so
+                2. Create a simple email capture form
+                3. Click "Share" and get the embed code
+                4. Replace the form below
+                -->
+                
+                <!-- Simple form placeholder - Replace with your email service -->
+                <form class="email-form" action="#" method="post">
+                    <input type="email" class="email-input" placeholder="Enter your email address" required>
+                    <button type="submit" class="cta-button">Get Early Access</button>
+                </form>
+                
+                <p style="font-size: 0.9rem; opacity: 0.7; margin-top: 1rem;">
+                    No spam, ever. Unsubscribe anytime.
+                </p>
+            </div>
+        </section>
+        
+        <!-- Footer -->
+        <footer class="footer">
+            <div style="max-width: 400px; margin: 0 auto;">
+                <div style="display: flex; align-items: center; justify-content: center; gap: 1rem; margin-bottom: 1rem;">
+                    <div style="width: 60px; height: 60px;">
+                        <svg viewBox="0 -10 100 110" style="width: 100%; height: 100%;">
+                            <!-- Geometric Pine Tree -->
+                            <polygon points="50,10 30,40 70,40" fill="none" stroke="#00D9FF" stroke-width="2" filter="drop-shadow(0 0 10px rgba(0, 217, 255, 0.8))"/>
+                            <polygon points="50,25 25,55 75,55" fill="none" stroke="#00D9FF" stroke-width="2" filter="drop-shadow(0 0 10px rgba(0, 217, 255, 0.8))"/>
+                            <polygon points="50,40 20,70 80,70" fill="none" stroke="#00D9FF" stroke-width="2" filter="drop-shadow(0 0 10px rgba(0, 217, 255, 0.8))"/>
+                            <rect x="45" y="70" width="10" height="20" fill="#FF9F00" filter="drop-shadow(0 0 10px rgba(255, 159, 0, 0.8))"/>
+                            
+                            <!-- Circuit patterns -->
+                            <line x1="50" y1="10" x2="50" y2="0" stroke="#00D9FF" stroke-width="1" stroke-dasharray="3,3" opacity="0.6"/>
+                            <line x1="30" y1="40" x2="10" y2="40" stroke="#00D9FF" stroke-width="1" stroke-dasharray="3,3" opacity="0.6"/>
+                            <line x1="70" y1="40" x2="90" y2="40" stroke="#00D9FF" stroke-width="1" stroke-dasharray="3,3" opacity="0.6"/>
+                            
+                            <!-- Data nodes -->
+                            <circle cx="50" cy="0" r="3" fill="#FF9F00" filter="drop-shadow(0 0 10px rgba(255, 159, 0, 0.8))"/>
+                            <circle cx="10" cy="40" r="3" fill="#FF9F00" filter="drop-shadow(0 0 10px rgba(255, 159, 0, 0.8))"/>
+                            <circle cx="90" cy="40" r="3" fill="#FF9F00" filter="drop-shadow(0 0 10px rgba(255, 159, 0, 0.8))"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h2 style="font-family: var(--font-display); font-size: 1.8rem; font-weight: 900; letter-spacing: 0.1em; margin: 0;">
+                            <span style="color: #00D9FF; text-shadow: 0 0 10px rgba(0, 217, 255, 0.8);">PINECRAFT</span><span style="color: #FF9F00; text-shadow: 0 0 10px rgba(255, 159, 0, 0.8);">AI</span>
+                        </h2>
+                    </div>
+                </div>
+            </div>
+            <p>&copy; 2024 PineCraft AI. All rights reserved.</p>
+            <p style="font-size: 0.9rem; opacity: 0.7; margin-top: 0.5rem;">
+                Transforming Pine Script development with artificial intelligence.
+            </p>
+        </footer>
+    </div>
+</body>
+</html> 
